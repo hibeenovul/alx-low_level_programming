@@ -11,12 +11,12 @@ int main(void)
 
 	i = 98;
 	if (i > 0)
-                printf("%d is positive", i);
-        else if (i == 0)
-                printf("%d is zero", i);
-        else if (i < 0)
-                printf("%d is negative", i);
-        printf("\n");
+		printf("%d is positive", i);
+	else if (i == 0)
+		printf("%d is zero", i);
+	else if (i < 0)
+		printf("%d is negative", i);
+	printf("\n");
 
 	return (0);
 }
