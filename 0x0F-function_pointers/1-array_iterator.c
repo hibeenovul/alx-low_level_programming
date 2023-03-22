@@ -2,7 +2,7 @@
 
 /**
  * array_iterator - function that iterates array
- * @arry: parameter to consider
+ * @array: parameter to consider
  * @size: size of the parameter
  * @action: pointer to function
  * Return: no return
