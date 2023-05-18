@@ -145,12 +145,9 @@ void print_magic(char *ptr)
 	int byt;
 
 	printf("  Magic:  ");
-
 	for (byt = 0; byt < 16; byt++)
 		printf(" %02x", ptr[byt]);
-
 	printf("\n");
-
 }
 
 /**
@@ -170,10 +167,8 @@ void check_sys(char *ptr)
 
 	if (sy == '1')
 		printf("  Class:                             ELF32\n");
-
 	if (sy == '2')
 		printf("  Class:                             ELF64\n");
-
 	print_data(ptr);
 	print_version(ptr);
 	print_osabi(ptr);
@@ -195,7 +190,6 @@ int check_elf(char *ptr)
 
 	if (a == 127 && E == 'E' && L == 'L' && F == 'F')
 		return (1);
-
 	return (0);
 }
 
@@ -215,30 +209,24 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
 		exit(98);
 	}
-
 	fd = open(argv[1], O_RDONLY);
-
 	if (fd < 0)
 	{
 		dprintf(STDERR_FILENO, "Err: file can not be open\n");
 		exit(98);
 	}
-
 	lseek(fd, 0, SEEK_SET);
 	rt_rd = read(fd, ptr, 27);
-
 	if (rt_rd == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
 		exit(98);
 	}
-
 	if (!check_elf(ptr))
 	{
 		dprintf(STDERR_FILENO, "Err: It is not an ELF\n");
 		exit(98);
 	}
-
 	check_sys(ptr);
 	close(fd);
 
