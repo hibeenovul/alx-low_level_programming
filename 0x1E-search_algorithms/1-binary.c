@@ -25,10 +25,10 @@ int binary_search(int *array, size_t size, int value)
 		printf("%d\n", array[j]);
 
 		j = left + (right - left) / 2;
-		if (array[i] == value)
+		if (array[j] == value)
 			return (j);
 
-		if (array[i] > value)
+		if (array[j] > value)
 			right = j - 1;
 		else
 			left = j + 1;
